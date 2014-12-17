@@ -8,11 +8,11 @@
       <div class="modal-body" ng-controller="MainCtrl">
 
         <form id='fileUpload' action="http://emphonic-player-demo.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-          <input id='acl' type="hidden" name="acl" value="public-read" />
-          <input id='key' type="hidden" name="key" value="" />
-          <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="{{}}" />
-          <input id='uploadPolicy' type="hidden" name="Policy" value="POLICY" />
-          <input id='uploadSignature' type="hidden" name="Signature" value="SIGNATURE" />
+          <input id='acl' type="hidden" name="acl" value="{{ response.acl }}" />
+          <input id='key' type="hidden" name="key" value="{{ response.key }}" />
+          <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="{{ response.access_key }}" />
+          <input id='uploadPolicy' name="Policy" value="{{ response.policy }}" />
+          <input id='uploadSignature' type="hidden" name="Signature" value="{{ response.signature }}" />
           <input id='choseFile' type="file" name="file" accept="audio/mp3" ng-click="getAmazonURL()"/> <br />
           <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
           <input class="btn btn-primary" id='submitButton' type="submit" name="submit" value="Upload to Amazon S3" />

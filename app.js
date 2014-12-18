@@ -6,33 +6,33 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http) 
     $scope.getAmazonURL = function() {
         $http.get('http://localhost:3000/amazon/sign_key').success(function(response){
             $scope.response = response;
+            console.log(response.key)
             // debugger;
+        }).error(function(data, status, headers, config){
+            console.log(data);
+            console.log(status);
+            console.log("error");
         });
-
-        // console.log("hi");
-        // $.ajax({
-        //     url: 'http://localhost:3000/amazon/sign_key',
-        //     type: 'GET',
-        //     data: {file_name: 'url.jpg'}
-        // })
-        // .done(function(result) {
-        //     $scope.response = result;
-        //     $('#uploadPolicy').val(result.policy);
-        //     $('#uploadSignature').val(result.signature);
-        //     $('#accessKey').val(result.access_key);
-        //     $('#acl').val(result.acl);
-        //     $('#key').val(result.key);
-        //     key = "https://s3.amazonaws.com/emphonic-player-demo/" + result.key;
-        //     console.log(key);
-        // })
-        // .fail(function(error) {
-        //     console.log(error);
-        //     console.log("error");
-        // })
-        //   .always(function() {
-        //     console.log("complete");
-        // });
     };
+
+    $scope.uploadFile = function() {
+      data = {
+        "acl" : $scope.response.acl,
+        "key" : $scope.response.key,
+        "AWSAccessKeyId" : $scope.response.access_key,
+        "Policy" : $scope.response.policy,
+        "Signature" : $scope.response.signature
+      };
+      $http.post('http://emphonic-player-demo.s3.amazonaws.com/', data);
+      // $.ajax({
+      //   url: 'https://emphonic-player-demo/songs',
+      //   type: 'POST',
+      //   data: {song: {file_name: 'placeholder', image_file: 'placeholder', image_url: key, flag: '0', image_set_id: '1'}}
+      // }).done(function(response) {
+      //   console.table(response);
+      // });
+    }
+
 });
 
 angular.module('EmphonicPlayer').directive('uploadModal', function() {
@@ -49,16 +49,4 @@ angular.module('EmphonicPlayer').directive('uploadModal', function() {
     };
 });
 
-// angular.module('EmphonicPlayer').directive('AddSongModal', function() {
-//     return {
-//         restrict: 'E',
 
-//         transclude: true,
-
-//         templateUrl: 'templates/modal.html',
-
-//         scope: {
-//             title: '@'
-//         }
-//     };
-// });

@@ -1,12 +1,25 @@
-angular.module('EmphonicPlayer', []);
+angular.module('EmphonicPlayer', [])
 
-angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http) {
+angular.module('EmphonicPlayer').run(function(SongsFactory){
+    SongsFactory.fetch();
+
+});
+
+angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory) {
     'use strict';
+
+    $scope.songs = SongsFactory.songs;
+
+    $scope.setCurrentSong = function(song) {
+        $scope.current_song = song;
+        console.log("in setCurrentSong");
+    };
+
 
     $scope.getAmazonURL = function() {
         $http.get('http://localhost:3000/amazon/sign_key').success(function(response){
             $scope.response = response;
-            console.log(response.key)
+            console.log(response.key);
             // debugger;
         }).error(function(data, status, headers, config){
             console.log(data);

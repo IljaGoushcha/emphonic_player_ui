@@ -44,6 +44,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
 
     $scope.getAmazonURL = function() {
+        console.log("inside getAmazonURL");
         $http.get('http://localhost:3000/amazon/sign_key').success(function(response){
             $scope.response = response;
             console.log(response.key);

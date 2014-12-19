@@ -1,4 +1,4 @@
-angular.module('EmphonicPlayer', [])
+angular.module('EmphonicPlayer', ['mediaPlayer'])
 
 angular.module('EmphonicPlayer').run(function(SongsFactory){
     SongsFactory.fetch();
@@ -9,12 +9,39 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     'use strict';
 
     $scope.songs = SongsFactory.songs;
+    var x = 1.0;
+
+    var audioElm = document.getElementById("audio1"); // Audio element
+    var ratedisplay = document.getElementById("rate"); // Rate display area
 
     $scope.setCurrentSong = function(song) {
         $scope.current_song = song;
         console.log("in setCurrentSong");
     };
 
+    $scope.playButton = function () {
+
+        $scope.customText = 'I started angular-media-player with a custom defined action!';
+        $scope.audio1.playPause();
+    };
+
+    $scope.speedUp = function () {
+        x = x + 0.1;
+        $scope.audio1.setPlaybackRate(x);
+        console.log(x);
+    };
+
+    $scope.slowDown = function () {
+        x = x - 0.1;
+        $scope.audio1.setPlaybackRate(x);
+        console.log(x);
+    };
+
+    $scope.resetSpeed = function () {
+        x = 1.0;
+        $scope.audio1.setPlaybackRate(x);
+        console.log(x);
+    };
 
     $scope.getAmazonURL = function() {
         $http.get('http://localhost:3000/amazon/sign_key').success(function(response){

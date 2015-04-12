@@ -5,10 +5,30 @@ angular.module('EmphonicPlayer').run(function(SongsFactory){
 
 });
 
+angular.module('EmphonicPlayer').directive('uploadModal', function() {
+  return {
+    restrict: 'E',
+
+    transclude: true,
+
+    templateUrl: 'templates/upload-track-modal.html',
+
+    scope: {
+        title: '@'
+    },
+  };
+});
+
 angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory) {
     'use strict';
 
     $scope.songs = SongsFactory.songs;
+
+    $scope.play_list = [
+        { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e', type: 'audio/ogg' },
+        { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/97999ab8-8cca-4fa2-a324-207b6defbd98', type: 'audio/ogg' }
+    ];
+
     var x = 1.0;
 
     var audioElm = document.getElementById("audio1"); // Audio element
@@ -21,8 +41,12 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.playButton = function () {
 
-        $scope.customText = 'I started angular-media-player with a custom defined action!';
         $scope.audio1.playPause();
+    };
+
+    $scope.nextTrack = function () {
+        console.log("inside nextSong");
+        $scope.audio1.next();
     };
 
     $scope.speedUp = function () {
@@ -76,18 +100,18 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
 });
 
-angular.module('EmphonicPlayer').directive('uploadModal', function() {
-    return {
-        restrict: 'E',
+// angular.module('EmphonicPlayer').directive('uploadModal', function() {
+//     return {
+//         restrict: 'E',
 
-        transclude: true,
+//         transclude: true,
 
-        templateUrl: 'templates/upload-modal.html',
+//         templateUrl: 'templates/upload-modal.html',
 
-        scope: {
-            title: '@'
-        }
-    };
-});
+//         scope: {
+//             title: '@'
+//         }
+//     };
+// });
 
 

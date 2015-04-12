@@ -10,15 +10,23 @@
   </head>
 
   <body ng-app="EmphonicPlayer" ng-controller="MainCtrl">
-    <p>{{current_song.title}}</p>
+<!--     <p>{{current_song.title}}</p>
     <p>{{current_song.url}}</p>
     <audio media-player="audio1" data-playlist="playlist1">
       <source src="https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e" type="audio/ogg">
-    </audio>
+      <source src="https://s3.amazonaws.com/emphonic-player-demo/uploads/97999ab8-8cca-4fa2-a324-207b6defbd98" type="audio/ogg">
+    </audio> -->
 
-    <ng-view></ng-view>
+    <!-- <ng-view></ng-view> -->
 
-    <div class="container">
+<!--     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn" data-toggle="modal" data-target="#UploadSongModal">
+      <i class="glyphicon glyphicon-upload"></i>
+      <upload-modal title="Choose a song to upload"></upload-modal>
+    </div> -->
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
+    <upload-modal title="upload modal">my modal is here</upload-modal>
+<!--     <div class="container">
       <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
@@ -80,7 +88,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <ul>
-                <li ng-repeat="song in songs" ng-click="setCurrentSong(song)">{{ song.title }}</li>
+                <li ng-repeat="song in songs" ng-click="setCurrentSong(song)">{{ song.title }}</li> -->
                 <!-- <li>track 03</li>
                 <li>track 04</li>
                 <li>track 05</li>
@@ -89,20 +97,20 @@
                 <li>track 08</li>
                 <li>track 09</li>
                 <li>track 10</li> -->
-              </ul>
+             <!--  </ul>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div>
-                <audio id="audio1" style="width:100%" controls>Canvas not supported</audio>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{ width: mediaPlayer.currentTime*100/mediaPlayer.duration + '%' }"></div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-step-backward"></i></div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-play" ng-click="playButton()"></i></div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-stop"></i></div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-step-forward" ng-click="nextTrack()"></i></div>
           </div>
           <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-minus-sign" ng-click="slowDown()"></i></div>
@@ -128,7 +136,7 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
 
 
     <script src="bower_components/angular/angular.js"></script>

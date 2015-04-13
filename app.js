@@ -68,10 +68,11 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
 
     $scope.getAmazonURL = function() {
-        console.log("inside getAmazonURL");
-        $http.get('http://localhost:3000/amazon/sign_key').success(function(response){
+        console.log("inside getAmazonURL()");
+        $http.get('http://localhost:3000/amazon/sign_key')
+        .success(function(response){
             $scope.response = response;
-            console.log(response.key);
+            console.log(response);
             // debugger;
         }).error(function(data, status, headers, config){
             console.log(data);
@@ -96,6 +97,45 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
       // }).done(function(response) {
       //   console.table(response);
       // });
+    };
+
+    $scope.uploadToS3 = function() {
+        console.log("inside uploadToS3()");
+        $scope.getAmazonURL();
+        console.log("and again, $scope.response:");
+        console.log($scope.response);
+        // var formData = new FormData();
+        // formData.append('acl', responseSignKey.acl);
+        // formData.append('key', responseSignKey.key);
+        // formData.append('AWSAccessKeyId', responseSignKey.access_key);
+        // formData.append('Policy', responseSignKey.policy);
+        // formData.append('Signature', responseSignKey.signature);
+        // formData.append('file', $('#audio-file')[0].files[0]);
+
+        // $.ajax({
+        //     url: 'http://emphonic-player-demo.s3.amazonaws.com/',
+        //     type: 'POST',
+        //     data: formData,
+        //     cache: false,
+        //     processData: false,
+        //     contentType: false,
+        //     beforeSend: function(request) {
+        //       console.log("sending file to S3...")
+        //     },
+        //     success: function(data,textStatus,jqXHR){
+        //       // console.log(data);
+        //       // console.log(textStatus);
+        //       console.log(jqXHR.status);
+        //     },
+        //     error: function(jqXHR, exception) {
+        //       console.log(jqXHR);
+        //       console.log(exception);
+        //     },
+        //     complete: function() {
+        //       console.log('finished file upload.');
+        //       sendToRails(responseSignKey.key);
+        //     }
+        // });
     }
 
 });

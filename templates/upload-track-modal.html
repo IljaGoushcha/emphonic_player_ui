@@ -7,63 +7,16 @@
       </div>
       <div class="modal-body" ng-controller="MainCtrl">
 
-        <form id='fileUpload' action="http://emphonic-player-demo.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-          <input id='acl' type="hidden" name="acl" value="{{ response.acl }}" />
-          <input id='key' type="hidden" name="key" value="{{ response.key }}" />
-          <input id='accessKey' type="hidden" name="AWSAccessKeyId" value="{{ response.access_key }}" />
-          <input id='uploadPolicy' type="hidden" name="Policy" value="{{ response.policy }}" />
-          <input id='uploadSignature' type="hidden" name="Signature" value="{{ response.signature }}" />
-          <input id='choseFile' type="file" name="file" accept="audio/mp3" ng-click="getAmazonURL()"/> <br />
-          <input class="btn btn-primary" id='submitButton' type="submit" name="submit" value="Upload to Amazon S3" />
-        </form>
+        <div id="form-for-s3">
+          <input id="audio-file" name="file" type="file">
+          <input type="text" name="title" placeholder="Title:">
+          <input type="text" name="author" placeholder="Author:">
+          <input type="text" name="album" placeholder="Album:">
+        </div>
 
-
-
-        <form role="form" action="http://localhost:3000/songs" method="post" enctype="multipart/form-data">
-
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputUrl" name="song[url]" value="https://s3.amazonaws.com/emphonic-player-demo/{{ response.key }}">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputTitle" name="song[title]" placeholder="Enter title">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputAuthor" name="song[author]" placeholder="Enter author">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputAlbum" name="song[album]" placeholder="Enter album">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputPitch" name="song[pitch]" placeholder="Enter pitch">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputVolume" name="song[volume]" placeholder="Enter volume">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputFadeStartTime" name="song[fade_start_time]" placeholder="Enter fade start time">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="inputFadeStopTime" name="song[fade_stop_time]" placeholder="Enter fade stop time">
-          </div>
-          <button type="submit" class="btn btn-primary">Upload To API</button>
-        </form>
+        <button id="upload-button" ng-click="uploadToS3()">Upload to S3</button>
 
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-<!-- <div class="modal fade" id="UploadSongModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
-          <h4 class="modal-title">{{ title }}</h4>
-      </div>
-
-      <div class="modal-body" ng-transclude></div>
-    </div>
-  </div>
-</div> -->

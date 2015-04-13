@@ -1,4 +1,4 @@
-angular.module('EmphonicPlayer', ['mediaPlayer'])
+angular.module('EmphonicPlayer', ['mediaPlayer']);
 
 angular.module('EmphonicPlayer').run(function(SongsFactory){
     SongsFactory.fetch();
@@ -18,6 +18,29 @@ angular.module('EmphonicPlayer').directive('uploadModal', function() {
     },
   };
 });
+
+angular.factory('AmazonService', function ($http, $q) {
+    return {
+        getKey: function() {
+            // the $http API is based on the deferred/promise APIs exposed by the $q service
+            // so it returns a promise for us by default
+            return $http.get('http://localhost:3000/amazon/sign_key')
+                .then(function(response) {
+                    if (typeof response.data === 'object') {
+                        return response.data;
+                    } else {
+                        // invalid response
+                        return $q.reject(response.data);
+                    }
+
+            }, function(response) {
+                // something went wrong
+                return $q.reject(response.data);
+            });
+        }
+    };
+});
+
 
 angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory) {
     'use strict';
@@ -69,9 +92,9 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.getAmazonURL = function() {
         console.log("inside getAmazonURL()");
-        $http.get('http://localhost:3000/amazon/sign_key')
+        var promise = $http.get('http://localhost:3000/amazon/sign_key')
         .success(function(response){
-            $scope.response = response;
+            // $scope.response = response;
             console.log(response);
             // debugger;
         }).error(function(data, status, headers, config){
@@ -79,6 +102,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             console.log(status);
             console.log("error");
         });
+        return promise;
     };
 
     $scope.uploadFile = function() {
@@ -101,9 +125,9 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.uploadToS3 = function() {
         console.log("inside uploadToS3()");
-        $scope.getAmazonURL();
-        console.log("and again, $scope.response:");
-        console.log($scope.response);
+        var amazonPromise = $scope.getAmazonURL();
+        console.log("amazonPromis: " + amazonPromise);
+
         // var formData = new FormData();
         // formData.append('acl', responseSignKey.acl);
         // formData.append('key', responseSignKey.key);

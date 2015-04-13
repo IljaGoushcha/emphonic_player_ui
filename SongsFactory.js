@@ -1,4 +1,4 @@
-angular.module('EmphonicPlayer').factory('SongsFactory', function($http){
+angular.module('EmphonicPlayer').factory('SongsFactory', function($http) {
 
   var songs = [];
 

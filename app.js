@@ -2,7 +2,6 @@ angular.module('EmphonicPlayer', ['mediaPlayer']);
 
 angular.module('EmphonicPlayer').run(function(SongsFactory){
     SongsFactory.fetch();
-
 });
 
 angular.module('EmphonicPlayer').directive('uploadModal', function() {
@@ -19,30 +18,7 @@ angular.module('EmphonicPlayer').directive('uploadModal', function() {
   };
 });
 
-angular.factory('AmazonService', function ($http, $q) {
-    return {
-        getKey: function() {
-            // the $http API is based on the deferred/promise APIs exposed by the $q service
-            // so it returns a promise for us by default
-            return $http.get('http://localhost:3000/amazon/sign_key')
-                .then(function(response) {
-                    if (typeof response.data === 'object') {
-                        return response.data;
-                    } else {
-                        // invalid response
-                        return $q.reject(response.data);
-                    }
-
-            }, function(response) {
-                // something went wrong
-                return $q.reject(response.data);
-            });
-        }
-    };
-});
-
-
-angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory) {
+angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, AmazonService) {
     'use strict';
 
     $scope.songs = SongsFactory.songs;
@@ -125,8 +101,24 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.uploadToS3 = function() {
         console.log("inside uploadToS3()");
-        var amazonPromise = $scope.getAmazonURL();
-        console.log("amazonPromis: " + amazonPromise);
+        // var amazonPromise = $scope.getAmazonURL();
+        // console.log("amazonPromis: " + amazonPromise);
+
+        var makePromiseWithAmazon = function() {
+            console.log("inside makePromiseWithAmazon");
+            // This service's function returns a promise, but we'll deal with that shortly
+            AmazonService.getKey()
+                // then() called when son gets back
+                .then(function(data) {
+                    // promise fulfilled
+                    console.log(data);
+                }, function(error) {
+                    // promise rejected, could log the error with: console.log('error', error);
+                    console.log(error);
+                });
+        };
+
+        makePromiseWithAmazon();
 
         // var formData = new FormData();
         // formData.append('acl', responseSignKey.acl);

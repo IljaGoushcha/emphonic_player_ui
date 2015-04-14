@@ -9,9 +9,22 @@
 
         <div id="form-for-s3">
           <input name="file" type="file" file-model="myAudioFile">
-          <input type="text" name="title" placeholder="Title:" ng-model="song.title">
+          <!-- <input type="text" name="title" placeholder="Title:" ng-model="song.title">
           <input type="text" name="author" placeholder="Author:" ng-model="song.author">
           <input type="text" name="album" placeholder="Album:" ng-model="song.album">
+          <input type="text" name="playlist" placeholder="Playlist:" ng-model="song.playlist"> -->
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" ng-model="song.title">
+          </div>
+          <div class="form-group">
+            <label for="author">Author:</label>
+            <input type="text" class="form-control" ng-model="song.author">
+          </div>
+          <div class="form-group">
+            <label for="album">Album:</label>
+            <input type="text" class="form-control" ng-model="song.album">
+          </div>
         </div>
 
         <button id="upload-button" ng-click="uploadToS3()">Upload to S3</button>

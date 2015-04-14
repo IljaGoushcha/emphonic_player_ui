@@ -4,20 +4,6 @@ angular.module('EmphonicPlayer').run(function(SongsFactory){
     SongsFactory.fetch();
 });
 
-angular.module('EmphonicPlayer').directive('uploadModal', function() {
-  return {
-    restrict: 'E',
-
-    transclude: true,
-
-    templateUrl: 'templates/upload-track-modal.html',
-
-    scope: {
-        title: '@'
-    },
-  };
-});
-
 angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, AmazonService) {
     'use strict';
 
@@ -81,24 +67,6 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         return promise;
     };
 
-    $scope.uploadFile = function() {
-      data = {
-        "acl" : $scope.response.acl,
-        "key" : $scope.response.key,
-        "AWSAccessKeyId" : $scope.response.access_key,
-        "Policy" : $scope.response.policy,
-        "Signature" : $scope.response.signature
-      };
-      $http.post('http://emphonic-player-demo.s3.amazonaws.com/', data);
-      // $.ajax({
-      //   url: 'https://emphonic-player-demo/songs',
-      //   type: 'POST',
-      //   data: {song: {file_name: 'placeholder', image_file: 'placeholder', image_url: key, flag: '0', image_set_id: '1'}}
-      // }).done(function(response) {
-      //   console.table(response);
-      // });
-    };
-
     $scope.uploadToS3 = function() {
         console.log("inside uploadToS3()");
         var amazonSignKey = {};
@@ -127,6 +95,8 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             formData.append('Policy', amazonSignKey.policy);
             formData.append('Signature', amazonSignKey.signature);
             formData.append('file', $scope.myAudioFile);
+
+            console.log("loading file to s3...");
 
             $http.post('http://emphonic-player-demo.s3.amazonaws.com/', formData, {
                 transformRequest: angular.identity,

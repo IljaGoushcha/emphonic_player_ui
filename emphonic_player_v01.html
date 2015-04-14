@@ -19,10 +19,10 @@
 
     <!-- <ng-view></ng-view> -->
 
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn" data-toggle="modal" data-target="#UploadSongModal">
-      <i class="glyphicon glyphicon-upload"></i>
-      <upload-modal title="Choose a song to upload"></upload-modal>
-    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
+    <upload-modal title="Choose a song to upload"></upload-modal>
+
 
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
     <upload-modal title="upload modal">my modal is here</upload-modal> -->
@@ -144,8 +144,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-media-player/dist/angular-media-player.js"></script>
     <script src="app.js"></script>
-    <script src="SongsFactory.js"></script>
-    <script src="AmazonService.js"></script>
+    <script src="factories/SongsFactory.js"></script>
+    <script src="factories/AmazonService.js"></script>
     <script src="directives/file-model.js"></script>
     <script src="directives/upload-modal.js"></script>
 

@@ -4,7 +4,6 @@ angular.module('EmphonicPlayer').directive('uploadModal', function() {
     transclude: true,
     templateUrl: 'templates/upload-track-modal.html',
     backdrop: 'static',
-    keyboard: false,
     scope: {
         title: '@'
     }

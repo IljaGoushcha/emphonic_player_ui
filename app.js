@@ -101,8 +101,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.uploadToS3 = function() {
         console.log("inside uploadToS3()");
-        // var amazonPromise = $scope.getAmazonURL();
-        // console.log("amazonPromis: " + amazonPromise);
+        var amazonSignKey = {};
 
         var makePromiseWithAmazon = function() {
             console.log("inside makePromiseWithAmazon");
@@ -110,64 +109,40 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             AmazonService.getKey()
                 // then() called when son gets back
                 .then(function(data) {
-                    // promise fulfilled
+                    amazonSignKey = data;
                     console.log(data);
+                    sendToS3();
                 }, function(error) {
                     // promise rejected, could log the error with: console.log('error', error);
                     console.log(error);
                 });
         };
 
+        var sendToS3 = function() {
+            console.log("inside sendToS3");
+            var formData = new FormData();
+            formData.append('acl', amazonSignKey.acl);
+            formData.append('key', amazonSignKey.key);
+            formData.append('AWSAccessKeyId', amazonSignKey.access_key);
+            formData.append('Policy', amazonSignKey.policy);
+            formData.append('Signature', amazonSignKey.signature);
+            formData.append('file', $scope.myAudioFile);
+
+            $http.post('http://emphonic-player-demo.s3.amazonaws.com/', formData, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            })
+            .success(function(){
+                console.log("file uploaded to S3 successfully");
+            })
+            .error(function(){
+                console.log("some error occured while uploading to S3");
+            });
+        };
+
         makePromiseWithAmazon();
-
-        // var formData = new FormData();
-        // formData.append('acl', responseSignKey.acl);
-        // formData.append('key', responseSignKey.key);
-        // formData.append('AWSAccessKeyId', responseSignKey.access_key);
-        // formData.append('Policy', responseSignKey.policy);
-        // formData.append('Signature', responseSignKey.signature);
-        // formData.append('file', $('#audio-file')[0].files[0]);
-
-        // $.ajax({
-        //     url: 'http://emphonic-player-demo.s3.amazonaws.com/',
-        //     type: 'POST',
-        //     data: formData,
-        //     cache: false,
-        //     processData: false,
-        //     contentType: false,
-        //     beforeSend: function(request) {
-        //       console.log("sending file to S3...")
-        //     },
-        //     success: function(data,textStatus,jqXHR){
-        //       // console.log(data);
-        //       // console.log(textStatus);
-        //       console.log(jqXHR.status);
-        //     },
-        //     error: function(jqXHR, exception) {
-        //       console.log(jqXHR);
-        //       console.log(exception);
-        //     },
-        //     complete: function() {
-        //       console.log('finished file upload.');
-        //       sendToRails(responseSignKey.key);
-        //     }
-        // });
     }
 
 });
-
-// angular.module('EmphonicPlayer').directive('uploadModal', function() {
-//     return {
-//         restrict: 'E',
-
-//         transclude: true,
-
-//         templateUrl: 'templates/upload-modal.html',
-
-//         scope: {
-//             title: '@'
-//         }
-//     };
-// });
 
 

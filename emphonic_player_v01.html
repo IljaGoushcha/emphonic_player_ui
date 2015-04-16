@@ -18,15 +18,7 @@
     </audio> -->
 
     <!-- <ng-view></ng-view> -->
-
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
-    <upload-modal title="Choose a song to upload"></upload-modal>
-
-
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
-    <upload-modal title="upload modal">my modal is here</upload-modal> -->
-<!--     <div class="container">
+    <div class="container">
       <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
@@ -88,16 +80,16 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <ul>
-                <li ng-repeat="song in songs" ng-click="setCurrentSong(song)">{{ song.title }}</li> -->
-                <!-- <li>track 03</li>
+                <li ng-repeat="song in songs" ng-click="setCurrentSong(song)">{{ song.title }}</li>
+                <li>track 03</li>
                 <li>track 04</li>
                 <li>track 05</li>
                 <li>track 06</li>
                 <li>track 07</li>
                 <li>track 08</li>
                 <li>track 09</li>
-                <li>track 10</li> -->
-             <!--  </ul>
+                <li>track 10</li>
+              </ul>
             </div>
           </div>
           <div class="row">
@@ -119,12 +111,10 @@
           </div>
           <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-repeat"></i></div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
 
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn" data-toggle="modal" data-target="#UploadSongModal">
-              <i class="glyphicon glyphicon-upload"></i>
-              <upload-modal title="Choose a song to upload"></upload-modal>
             </div>
-
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-wrench"></i></div>
           </div>
           <div class="row">
@@ -136,8 +126,9 @@
         </div>
 
       </div>
-    </div> -->
+    </div>
 
+    <upload-modal title="Choose a song to upload"></upload-modal>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -145,6 +136,7 @@
     <script src="bower_components/angular-media-player/dist/angular-media-player.js"></script>
     <script src="app.js"></script>
     <script src="factories/SongsFactory.js"></script>
+    <script src="factories/PlaylistsFactory.js"></script>
     <script src="factories/AmazonService.js"></script>
     <script src="directives/file-model.js"></script>
     <script src="directives/upload-modal.js"></script>

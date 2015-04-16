@@ -25,6 +25,15 @@
             <label for="album">Album:</label>
             <input type="text" class="form-control" ng-model="song.album">
           </div>
+          <div class="form-group">
+            <label for="sel1">Select playlist:</label>
+            <select class="form-control" id="sel1" ng-model="song.playlist">
+              <option>Salsa</option>
+              <option>Rumba</option>
+              <option>Cha Cha</option>
+              <option>Waltz</option>
+            </select>
+          </div>
         </div>
 
         <button id="upload-button" ng-click="uploadToS3()">Upload to S3</button>

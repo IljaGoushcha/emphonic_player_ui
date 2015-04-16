@@ -17,7 +17,7 @@ angular.module('EmphonicPlayer').factory('AmazonService', function ($http, $q) {
                 return $q.reject(response.data);
             });
         },
-        sendToS3: function(amazonSignKey, file, title, author, album) {
+        sendToS3: function(amazonSignKey, file, title, author, album, playlist) {
             console.log("inside sendToS3");
             var formData = new FormData();
             formData.append('acl', amazonSignKey.acl);
@@ -37,7 +37,7 @@ angular.module('EmphonicPlayer').factory('AmazonService', function ($http, $q) {
                 console.log("file uploaded to S3 successfully");
                 var psqlData = {
                     song: {
-                      "url": amazonSignKey.key,
+                      "url": amazonSignKey.key.replace("uploads/", ""),
                       "title": title,
                       "author": author,
                       "album": album,
@@ -45,6 +45,9 @@ angular.module('EmphonicPlayer').factory('AmazonService', function ($http, $q) {
                       "volume": "100",
                       "fade_start_time": "0",
                       "fade_stop_time": "0"
+                    },
+                    playlist: {
+                        "playlist": playlist
                     }
                 }
                 $http.post('http://localhost:3000/songs', psqlData)

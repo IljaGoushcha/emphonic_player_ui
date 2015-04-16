@@ -1,18 +1,20 @@
 angular.module('EmphonicPlayer', ['mediaPlayer']);
 
-angular.module('EmphonicPlayer').run(function(SongsFactory){
+angular.module('EmphonicPlayer').run(function(SongsFactory, PlaylistsFactory){
     SongsFactory.fetch();
+    PlaylistsFactory.fetch();
 });
 
-angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, AmazonService) {
+angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, PlaylistsFactory, AmazonService) {
     'use strict';
 
     $scope.songs = SongsFactory.songs;
+    $scope.playlists = PlaylistsFactory.playlists;
 
-    $scope.play_list = [
-        { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e', type: 'audio/ogg' },
-        { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/97999ab8-8cca-4fa2-a324-207b6defbd98', type: 'audio/ogg' }
-    ];
+    // $scope.play_list = [
+    //     { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e', type: 'audio/ogg' },
+    //     { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/97999ab8-8cca-4fa2-a324-207b6defbd98', type: 'audio/ogg' }
+    // ];
 
     var x = 1.0;
 
@@ -59,6 +61,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         var title = $scope.song.title;
         var author = $scope.song.author;
         var album = $scope.song.album;
+        var playlist = $scope.song.playlist;
 
         var makePromiseWithRailsAPI = function() {
             console.log("inside makePromiseWithRailsAPI");
@@ -68,7 +71,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
                 .then(function(data) {
                     amazonSignKey = data;
                     console.log(data);
-                    AmazonService.sendToS3(amazonSignKey, file, title, author, album);
+                    AmazonService.sendToS3(amazonSignKey, file, title, author, album, playlist);
                 }, function(error) {
                     // promise rejected, could log the error with: console.log('error', error);
                     console.log(error);

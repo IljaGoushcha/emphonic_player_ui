@@ -25,47 +25,8 @@
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>emphonic player</h1></div>
             </div>
-            <div class="row">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Rumba</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Cha Cha</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">W/C</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-            </div>
-            <div class="row">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Samba</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Rumba</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Bachata</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-            </div>
-            <div class="row">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Fxtrt</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">E/C</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Salsa</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-            </div>
-            <div class="row">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Arg Tango</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">Waltz</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">.hustle</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-            </div>
-            <div class="row">
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">...</div></div>
-              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><div class="folder">New Year's Eve</div>
-            </div>
-            </div>
+            <playlists-page></playlists-page>
+
             <div class="row">
               <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">page 1</div>
@@ -128,7 +89,7 @@
       </div>
     </div>
 
-    <upload-modal title="Choose a song to upload"></upload-modal>
+    <upload-song-modal title="Choose a song to upload"></upload-song-modal>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -139,7 +100,9 @@
     <script src="factories/PlaylistsFactory.js"></script>
     <script src="factories/AmazonService.js"></script>
     <script src="directives/file-model.js"></script>
-    <script src="directives/upload-modal.js"></script>
+    <script src="directives/upload-song-modal.js"></script>
+    <script src="directives/open-playlist-modal.js"></script>
+    <script src="directives/playlists-page.js"></script>
 
   </body>
 </html>

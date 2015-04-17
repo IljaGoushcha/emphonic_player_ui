@@ -9,7 +9,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     'use strict';
 
     $scope.songs = SongsFactory.songs;
-    $scope.playlists = PlaylistsFactory.playlists;
+    $scope.orderedPlaylists = PlaylistsFactory.orderedPlaylists;
 
     // $scope.play_list = [
     //     { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e', type: 'audio/ogg' },

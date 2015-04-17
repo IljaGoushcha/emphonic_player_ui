@@ -79,6 +79,10 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         };
 
         makePromiseWithRailsAPI();
+    };
+
+    $scope.setOpenedPlaylist = function(n) {
+        console.log("inside setOpenedPlaylist(), cell: " + n);
     }
 
 });

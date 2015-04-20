@@ -1,4 +1,4 @@
-angular.module('EmphonicPlayer').factory('AmazonService', function ($http, $q) {
+angular.module('EmphonicPlayer').factory('AmazonService', function($http, $q) {
     return {
         getKey: function() {
             // the $http API is based on the deferred/promise APIs exposed by the $q service
@@ -37,14 +37,14 @@ angular.module('EmphonicPlayer').factory('AmazonService', function ($http, $q) {
                 console.log("file uploaded to S3 successfully");
                 var psqlData = {
                     song: {
-                      "url": amazonSignKey.key.replace("uploads/", ""),
-                      "title": title,
-                      "author": author,
-                      "album": album,
-                      "pitch": "0",
-                      "volume": "100",
-                      "fade_start_time": "0",
-                      "fade_stop_time": "0"
+                        "url": amazonSignKey.key.replace("uploads/", ""),
+                        "title": title,
+                        "author": author,
+                        "album": album,
+                        "pitch": "0",
+                        "volume": "100",
+                        "fade_start_time": "0",
+                        "fade_stop_time": "0"
                     },
                     playlist: {
                         "playlist": playlist

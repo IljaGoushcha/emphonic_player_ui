@@ -10,6 +10,8 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.songs = SongsFactory.songs;
     $scope.orderedPlaylists = PlaylistsFactory.orderedPlaylists;
+    $scope.openedPlaylistSongs;
+    $scope.openedPlaylistSongs1 = ["hello", "hi"];
 
     // $scope.play_list = [
     //     { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e', type: 'audio/ogg' },
@@ -20,6 +22,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     var audioElm = document.getElementById("audio1"); // Audio element
     var ratedisplay = document.getElementById("rate"); // Rate display area
+
 
     $scope.setCurrentSong = function(song) {
         $scope.current_song = song;
@@ -81,8 +84,21 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         makePromiseWithRailsAPI();
     };
 
-    $scope.setOpenedPlaylist = function(n) {
-        console.log("inside setOpenedPlaylist(), cell: " + n);
+    $scope.setOpenedPlaylist = function(n, playlist) {
+        console.log("inside setOpenedPlaylist(), cell: " + n + ", playlist: " + playlist);
+        SongsFactory.fetchPlaylistSongs(playlist)
+            .then(function(data) {
+                console.log("data right after GET: " + data);
+                $scope.openedPlaylistSongs = data;
+                console.log("(1) $scope.openedPlaylistSongs " + $scope.openedPlaylistSongs1);
+                setTimeout(function(){ $('#OpenPlaylistModal').modal('show'); }, 2000);
+
+            }, function(error) {
+                // promise rejected, could log the error with: console.log('error', error);
+                console.log(error);
+            });
+        // console.log("playlistSongs" + playlistSongs);
+        console.log("(2) $scope.openedPlaylistSongs: " + $scope.openedPlaylistSongs);
     }
 
 });

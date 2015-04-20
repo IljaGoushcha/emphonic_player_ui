@@ -1,4 +1,4 @@
-<div class="modal fade" id="OpenPlaylistModal">
+<div class="modal fade" id="OpenPlaylistModal" ng-controller="MainCtrl">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,6 +7,10 @@
       </div>
       <div class="modal-body">
         <p>One fine body&hellip;</p>
+        <h1>HI: {{openedPlaylistSongs[0].author}}</h1>
+        <!-- <ul ng-repeat="song in openedPlaylistSongs">
+          <li>hi: {{song.title}}</li>
+        </ul> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -51,6 +51,11 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         $scope.audio1.next();
     };
 
+    $scope.previousTrack = function () {
+        console.log("inside previousSong");
+        $scope.audio1.prev();
+    };
+
     $scope.speedUp = function () {
         x = x + 0.1;
         $scope.audio1.setPlaybackRate(x);

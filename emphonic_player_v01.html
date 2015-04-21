@@ -10,15 +10,13 @@
   </head>
 
   <body ng-app="EmphonicPlayer" ng-controller="MainCtrl">
-    <p>YOYO1 {{current_song.title}}</p>
-    <p>YOYO2 {{current_song.url}}</p>
+
     <audio media-player="audio1" data-playlist="audioPlaylist"></audio>
 
-    <div class="container">
-      <div class="row">
+    <div class="container general-background">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
-            <div class="row">
+            <div class="row logo-div">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>emphonic player</h1></div>
             </div>
             <playlists-page ng-show="showPlaylistsPage"></playlists-page>
@@ -35,7 +33,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">PLAYLIST</div>
           </div>
-          <div class="row">
+          <div class="row audio-playlist">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <ul>
                 <li ng-repeat="song in audioPlaylistDisplay" ng-click="setCurrentSong(song)">{{song.author}} - {{song.title}}</li>
@@ -50,7 +48,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-step-backward"></i></div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-step-backward" ng-click="previousTrack()"></i></div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn">
               <i class="glyphicon glyphicon-play" ng-click="playButton()" ng-show="showPlayButton"></i>
               <i class="glyphicon glyphicon-pause" ng-click="playButton()" ng-show="showPauseButton"></i>
@@ -77,8 +75,6 @@
           </div>
 
         </div>
-
-      </div>
     </div>
     <upload-song-modal title="Choose a song to upload"></upload-song-modal>
 

@@ -10,14 +10,10 @@
   </head>
 
   <body ng-app="EmphonicPlayer" ng-controller="MainCtrl">
-<!--     <p>{{current_song.title}}</p>
-    <p>{{current_song.url}}</p>
-    <audio media-player="audio1" data-playlist="playlist1">
-      <source src="https://s3.amazonaws.com/emphonic-player-demo/uploads/1043ceee-c81d-458c-a9ac-f2aede40d93e" type="audio/ogg">
-      <source src="https://s3.amazonaws.com/emphonic-player-demo/uploads/97999ab8-8cca-4fa2-a324-207b6defbd98" type="audio/ogg">
-    </audio> -->
+    <p>YOYO1 {{current_song.title}}</p>
+    <p>YOYO2 {{current_song.url}}</p>
+    <audio media-player="audio1" data-playlist="audioPlaylist1"></audio>
 
-    <!-- <ng-view></ng-view> -->
     <div class="container">
       <div class="row">
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -37,20 +33,12 @@
 
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">playlist</div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">PLAYLIST</div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <ul>
-                <li ng-repeat="song in songs" ng-click="setCurrentSong(song)">{{ song.title }}</li>
-                <li>track 03</li>
-                <li>track 04</li>
-                <li>track 05</li>
-                <li>track 06</li>
-                <li>track 07</li>
-                <li>track 08</li>
-                <li>track 09</li>
-                <li>track 10</li>
+                <li ng-repeat="song in audioPlaylist" ng-click="setCurrentSong(song)">{{ song.title }}</li>
               </ul>
             </div>
           </div>

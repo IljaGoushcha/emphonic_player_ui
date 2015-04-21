@@ -9,11 +9,13 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     'use strict';
 
     $scope.audioPlaylist = [];
+    $scope.audioPlaylistDisplay = [];
     $scope.orderedPlaylists = PlaylistsFactory.orderedPlaylists;
     $scope.openedPlaylistSongs = [];
     $scope.showPlaylistsPage = true;
     $scope.showPlaylistPage = false;
-    $scope.audioPlaylist1 = [];
+    $scope.showPlayButton = true;
+    $scope.showPauseButton = false;
             // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/64b4d8c2-574c-4284-9c6b-6fe2810ae3c6', type: 'audio/ogg' },
             // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/92f3eafe-afb4-4abb-a80a-bb33cd328c76', type: 'audio/ogg' }
 
@@ -33,6 +35,13 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
 
     $scope.playButton = function () {
+        if ($scope.showPlayButton == true && $scope.showPauseButton == false) {
+            $scope.showPlayButton = false;
+            $scope.showPauseButton = true;
+        } else {
+            $scope.showPlayButton = true;
+            $scope.showPauseButton = false;
+        }
 
         $scope.audio1.playPause();
     };
@@ -106,8 +115,8 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         $scope.showPlaylistPage = false;
     };
     $scope.addSongToPlaylist = function(song) {
-        console.log(song);
-        $scope.audioPlaylist1.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
+        $scope.audioPlaylistDisplay.push(song);
+        $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
     }
 
 

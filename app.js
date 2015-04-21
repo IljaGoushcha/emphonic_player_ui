@@ -11,13 +11,12 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.audioPlaylist = [];
     $scope.orderedPlaylists = PlaylistsFactory.orderedPlaylists;
     $scope.openedPlaylistSongs = [];
-    $scope.openedPlaylistSongs1 = ["hello", "hi"];
     $scope.showPlaylistsPage = true;
     $scope.showPlaylistPage = false;
-    $scope.audioPlaylist1 = [
-            { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/64b4d8c2-574c-4284-9c6b-6fe2810ae3c6', type: 'audio/ogg' },
-            { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/92f3eafe-afb4-4abb-a80a-bb33cd328c76', type: 'audio/ogg' }
-        ]
+    $scope.audioPlaylist1 = [];
+            // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/64b4d8c2-574c-4284-9c6b-6fe2810ae3c6', type: 'audio/ogg' },
+            // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/92f3eafe-afb4-4abb-a80a-bb33cd328c76', type: 'audio/ogg' }
+
 
 
 
@@ -108,7 +107,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
     $scope.addSongToPlaylist = function(song) {
         console.log(song);
-        $scope.audioPlaylist.push(song);
+        $scope.audioPlaylist1.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
     }
 
 

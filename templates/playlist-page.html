@@ -1,5 +1,5 @@
-<h1>PLAYLIST PAGE</h1>
-<ul>
-  <li ng-repeat="song in openedPlaylistSongs" ng-click="addSongToPlaylist(song)">{{song.author}} - {{song.title}}</li>
+<h3>{{openedPlaylist}} tracks</h3>
+<ul class="list-group">
+  <li class="list-group-item btn" ng-repeat="song in openedPlaylistSongs" ng-click="addSongToPlaylist(song)">{{song.author}} - {{song.title}}</li>
 </ul>
-<button ng-click="closePlaylist()">Close</button>
+<button class="btn" ng-click="closePlaylist()">CLOSE</button>

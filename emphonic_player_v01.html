@@ -14,14 +14,15 @@
     <audio media-player="audio1" data-playlist="audioPlaylist"></audio>
 
     <div class="container general-background">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 left-side">
 
-            <div class="row logo-div">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>emphonic player</h1></div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 logo-div"></div>
             </div>
-            <playlists-page ng-show="showPlaylistsPage"></playlists-page>
-            <playlist-page ng-show="showPlaylistPage"></playlist-page>
-
+            <div class="playlists-div">
+              <playlists-page ng-show="showPlaylistsPage"></playlists-page>
+              <playlist-page ng-show="showPlaylistPage"></playlist-page>
+            </div>
             <div class="row">
               <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
               <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">page 1</div>
@@ -29,10 +30,7 @@
             </div>
         </div>
 
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">PLAYLIST</div>
-          </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 right-side" >
           <div class="row audio-playlist">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <ul>
@@ -62,8 +60,9 @@
           </div>
           <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-repeat"></i></div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn">
+              <i class="glyphicon glyphicon-upload" aria-hidden="true" data-toggle="modal" data-target="#UploadSongModal"></i>
+              <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#UploadSongModal"><i class="glyphicon glyphicon-upload" aria-hidden="true"></i></button> -->
 
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn"><i class="glyphicon glyphicon-wrench"></i></div>

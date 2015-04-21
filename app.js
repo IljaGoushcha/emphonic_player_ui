@@ -10,8 +10,10 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
     $scope.audioPlaylist = [];
     $scope.audioPlaylistDisplay = [];
+    $scope.playlistIndex = 0;
     $scope.orderedPlaylists = PlaylistsFactory.orderedPlaylists;
     $scope.openedPlaylistSongs = [];
+    $scope.openedPlaylist;
     $scope.showPlaylistsPage = true;
     $scope.showPlaylistPage = false;
     $scope.showPlayButton = true;
@@ -112,7 +114,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
                 // promise rejected, could log the error with: console.log('error', error);
                 console.log(error);
             });
-
+        $scope.openedPlaylist = playlist;
     };
 
     $scope.closePlaylist = function() {
@@ -120,7 +122,21 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         $scope.showPlaylistPage = false;
     };
     $scope.addSongToPlaylist = function(song) {
-        $scope.audioPlaylistDisplay.push(song);
+        var songWithIndex = {
+            id: song.id,
+            url: song.url,
+            album: song.album,
+            author: song.author,
+            title: song.title,
+            pitch: song.pitch,
+            fade_start_time: song.fade_start_time,
+            fade_stop_time: song.fade_stop_time,
+            volume: song.volume,
+            playlistIndex: $scope.playlistIndex
+        };
+        $scope.playlistIndex++;
+
+        $scope.audioPlaylistDisplay.push(songWithIndex);
         $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
     }
 

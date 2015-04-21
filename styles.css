@@ -68,6 +68,9 @@
   padding-left: 30px;
   border-left: 3px solid lightgrey;
 }
+.audio-playlist {
+  overflow: scroll;
+}
 .audio-playlist ul {
   list-style-type: none;
 }

@@ -4,7 +4,7 @@ angular.module('EmphonicPlayer').factory('PlaylistsFactory', function($http) {
   var orderedPlaylists = [];
 
   var fetch = function(){
-    $http.get('http://localhost:3000/playlists').success(function(response){
+    $http.get('https://emphonic-rails-api.herokuapp.com/playlists').success(function(response){
       console.log(response);
       angular.copy(response, playlists);
       for (var i = 1; i < 26; i++) {

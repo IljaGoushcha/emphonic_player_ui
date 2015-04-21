@@ -3,7 +3,7 @@ angular.module('EmphonicPlayer').factory('AmazonService', function($http, $q) {
         getKey: function() {
             // the $http API is based on the deferred/promise APIs exposed by the $q service
             // so it returns a promise for us by default
-            return $http.get('http://localhost:3000/amazon/sign_key')
+            return $http.get('https://emphonic-rails-api.herokuapp.com/amazon/sign_key')
                 .then(function(response) {
                     if (typeof response.data === 'object') {
                         return response.data;
@@ -34,7 +34,27 @@ angular.module('EmphonicPlayer').factory('AmazonService', function($http, $q) {
                 headers: {'Content-Type': undefined}
             })
             .success(function(){
+                var cell = 20;
                 console.log("file uploaded to S3 successfully");
+                if (playlist == "Bachata") {
+                    cell = 1;
+                } else if (playlist == "Cha Cha") {
+                    cell = 2;
+                } else if (playlist == "Foxtrot") {
+                    cell = 3;
+                } else if (playlist == "Pasodoble") {
+                    cell = 4;
+                } else if (playlist == "Rumba") {
+                    cell = 5;
+                } else if (playlist == "Salsa") {
+                    cell = 6;
+                } else if (playlist == "Samba") {
+                    cell = 7;
+                } else if (playlist == "Tango") {
+                    cell = 8;
+                } else if (playlist == "Waltz") {
+                    cell = 9;
+                }
                 var psqlData = {
                     song: {
                         "url": amazonSignKey.key.replace("uploads/", ""),
@@ -47,10 +67,11 @@ angular.module('EmphonicPlayer').factory('AmazonService', function($http, $q) {
                         "fade_stop_time": "0"
                     },
                     playlist: {
-                        "playlist": playlist
+                        "playlist": playlist,
+                        "cell": cell
                     }
                 }
-                $http.post('http://localhost:3000/songs', psqlData)
+                $http.post('https://emphonic-rails-api.herokuapp.com/songs', psqlData)
                 .success(function(){
                     console.log("info posted to psql successfully");
                 })

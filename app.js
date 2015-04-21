@@ -8,6 +8,7 @@ angular.module('EmphonicPlayer').run(function(SongsFactory, PlaylistsFactory){
 angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, PlaylistsFactory, AmazonService) {
     'use strict';
 
+    $scope.railsApiUrl = "https://emphonic-rails-api.herokuapp.com/";
     $scope.audioPlaylist = [];
     $scope.audioPlaylistDisplay = [];
     $scope.playlistIndex = 0;

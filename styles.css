@@ -63,12 +63,15 @@
   color: #575358;
   font-weight: bold;
 }
-.song-button:hover, .song-button:focus, .song-button:active, .song-button.active {
+.song-button:hover, .song-button:focus {
   background-image: url('images/song-button.jpg');
   border-color: lightgrey;
   outline: none !important;
   box-shadow: none !important;
   color: #969696;
+}
+.song-button:focus {
+  color: #575358;
 }
 .song-button:active, .song-button.active {
   border: 4px outset grey;

@@ -1,4 +1,5 @@
-<div class="row playlist-row">
+<h3>ALL PLAYLISTS</h3>
+<div class="row">
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 playlist-cell">
     <button type="button" class="btn btn-primary playlist-button" ng-click="openPlaylist(1, orderedPlaylists[0].name)">{{orderedPlaylists[0].name}}</button>
   </div>
@@ -96,6 +97,16 @@
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 playlist-cell">
     <button type="button" class="btn btn-primary playlist-button" ng-click="openPlaylist(30, orderedPlaylists[29].name)">{{orderedPlaylists[29].name}}</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <button class="btn" ng-click="closePlaylist()">page 1</button>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <button class="btn" ng-click="closePlaylist()">delay</button>
   </div>
 </div>
 

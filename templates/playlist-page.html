@@ -1,19 +1,102 @@
 <h3>{{openedPlaylist}} tracks</h3>
 <div class="row">
-  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 playlist-cell">1</div>
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 playlist-cell">
-    <button type="button" class="btn btn-primary playlist-button" ng-click="addSongToPlaylist(openedPlaylistSongs[0])">{{openedPlaylistSongs[0].author}}<br>{{openedPlaylistSongs[0].title}}</button>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">1</button>
   </div>
-  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 playlist-cell">6</div>
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 playlist-cell">
-    <button type="button" class="btn btn-primary playlist-button" ng-click="addSongToPlaylist(song)">{{orderedPlaylists[3].name}}</button>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[0])">{{openedPlaylistSongs[0].author}}<br>{{openedPlaylistSongs[0].title}}</button>
   </div>
-  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 playlist-cell">11</div>
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 playlist-cell">
-    <button type="button" class="btn btn-primary playlist-button" ng-click="addSongToPlaylist(song)">{{orderedPlaylists[5].name}}</button>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">6</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[5])">{{openedPlaylistSongs[5].author}}<br>{{openedPlaylistSongs[5].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
+    <button type="button" class="song-number-button">11</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[10])">{{openedPlaylistSongs[10].author}}<br>{{openedPlaylistSongs[10].title}}</button>
   </div>
 </div>
-<ul class="list-group">
-  <li class="list-group-item btn" ng-repeat="song in openedPlaylistSongs" ng-click="addSongToPlaylist(song)">{{song.author}} - {{song.title}}</li>
-</ul>
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">2</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[1])">{{openedPlaylistSongs[1].author}}<br>{{openedPlaylistSongs[1].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">7</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[6])">{{openedPlaylistSongs[6].author}}<br>{{openedPlaylistSongs[6].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
+    <button type="button" class="song-number-button">12</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[11])">{{openedPlaylistSongs[11].author}}<br>{{openedPlaylistSongs[11].title}}</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">3</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[2])">{{openedPlaylistSongs[2].author}}<br>{{openedPlaylistSongs[2].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">8</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[7])">{{openedPlaylistSongs[7].author}}<br>{{openedPlaylistSongs[7].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
+    <button type="button" class="song-number-button">13</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[12])">{{openedPlaylistSongs[12].author}}<br>{{openedPlaylistSongs[12].title}}</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">4</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[3])">{{openedPlaylistSongs[3].author}}<br>{{openedPlaylistSongs[3].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">9</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[8])">{{openedPlaylistSongs[8].author}}<br>{{openedPlaylistSongs[8].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
+    <button type="button" class="song-number-button">14</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[13])">{{openedPlaylistSongs[13].author}}<br>{{openedPlaylistSongs[13].title}}</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">5</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[4])">{{openedPlaylistSongs[4].author}}<br>{{openedPlaylistSongs[4].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
+    <button type="button" class="song-number-button">10</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[9])">{{openedPlaylistSongs[9].author}}<br>{{openedPlaylistSongs[9].title}}</button>
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
+    <button type="button" class="song-number-button">15</button>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[14])">{{openedPlaylistSongs[14].author}}<br>{{openedPlaylistSongs[14].title}}</button>
+  </div>
+</div>
 <button class="btn" ng-click="closePlaylist()">CLOSE</button>

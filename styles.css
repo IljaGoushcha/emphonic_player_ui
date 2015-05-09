@@ -44,6 +44,67 @@
   /*border: 1px solid grey;*/
   /*border: 4px outset lightgrey;*/
 }
+
+/* START playlist with songs page */
+.song-cell {
+  padding: 10px 0px 10px 0px;
+  height: 100px;
+}
+.song-button {
+  display: block;
+  height: 80px;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('images/song-button.jpg');
+  border: 4px outset lightgrey;
+  border-radius: 0;
+  font-size: 1em;
+  color: #575358;
+  font-weight: bold;
+}
+.song-button:hover, .song-button:focus, .song-button:active, .song-button.active {
+  background-image: url('images/song-button.jpg');
+  border-color: lightgrey;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #969696;
+}
+.song-button:active, .song-button.active {
+  border: 4px outset grey;
+}
+/* END playlist with songs page */
+
+/* START song number */
+.song-number-cell {
+  padding: 10px 0px 10px 0px;
+  height: 100px;
+}
+.song-number-button {
+  display: block;
+  /*margin-right: 0px;*/
+  height: 80px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: 0px;
+  background-image: url('images/song-button.jpg');
+  border: 4px outset lightgrey;
+  border-radius: 0;
+  font-size: 1em;
+  color: #575358;
+  font-weight: bold;
+}
+.song-number-button:hover, .song-number-button:focus, .song-number-button:active, .song-number-button.active {
+  background-image: url('images/song-button.jpg');
+  border-color: lightgrey;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.song-number-button:active, .song-number-button.active {
+  border: 4px outset grey;
+}
+/* END song number */
+
 .general-background {
   background-image: url('images/brushed-aluminum.jpg');
   background-size: cover;

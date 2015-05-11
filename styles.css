@@ -109,11 +109,9 @@
 
 /* START playlists navigation buttons page */
 .playlists-nav-button {
-  display: block;
+  display: inline;
   height: 40px;
-  width: 70px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 39.5%;
   background-image: url('images/song-button.jpg');
   border: 4px outset lightgrey;
   border-radius: 0;
@@ -134,10 +132,23 @@
 .playlists-nav-button:active, .playlists-nav-button.active {
   border: 4px outset grey;
 }
-.playlists-page-number p {
+.playlists-nav-button-prev {
+  margin-top: 0;
+  margin-bottom: 0px;
+  margin-left: 0;
+  margin-right: 3%;
+}
+.playlists-nav-button-next {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 3%;
+  margin-right: 0;
+}
+.playlists-page-number {
+  display: inline;
   font-size: 2em;
-  text-align: center;
-  margin: 0px;
+  line-height: 20px;
+  vertical-align: middle;
 }
 /* END playlists navigation buttons */
 

@@ -14,7 +14,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.playlistIndex = 0;
     $scope.playlistFolders = PlaylistFoldersFactory.playlistFolders;
     $scope.openedPlaylistSongs = [];
-    $scope.openedPlaylist;
+    $scope.openedPlaylist = "hi";
     $scope.showPlaylistFolders = true;
     $scope.showPlaylistPage = false;
     $scope.showPlayButton = true;
@@ -119,27 +119,35 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         $scope.openedPlaylist = playlist;
     };
 
+    $scope.openPlaylistX = function(folderNumber) {
+        console.log("folder number is: " + folderNumber);
+        $scope.openedPlaylistSongs = $scope.playlistFolders[folderNumber-1].playlist.songs;
+        $scope.openedPlaylist = $scope.playlistFolders[folderNumber-1].playlist.name;
+        $scope.showPlaylistFolders = false;
+        $scope.showPlaylistPage = true;
+    };
+
     $scope.closePlaylist = function() {
-        $scope.showPlaylistsPage = true;
+        $scope.showPlaylistFolders = true;
         $scope.showPlaylistPage = false;
     };
     $scope.addSongToPlaylist = function(song) {
         var songWithIndex = {
             id: song.id,
-            url: song.url,
+            amazon_uid: song.amazon_uid,
             album: song.album,
-            author: song.author,
-            title: song.title,
+            artist: song.artist,
+            name: song.name,
             pitch: song.pitch,
-            fade_start_time: song.fade_start_time,
-            fade_stop_time: song.fade_stop_time,
+            fade_in_time: song.fade_in_time,
+            fade_out_time: song.fade_out_time,
             volume: song.volume,
             playlistIndex: $scope.playlistIndex
         };
         $scope.playlistIndex++;
 
         $scope.audioPlaylistDisplay.push(songWithIndex);
-        $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
+        $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.amazon_uid, type: 'audio/ogg'});
     };
     $scope.nextPlaylistFoldersPage = function() {
         if ($scope.playlistFolders[$scope.playlistFolders.length - 1].page_number == $scope.playlistFoldersPage) {

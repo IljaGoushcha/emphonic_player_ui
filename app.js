@@ -143,12 +143,14 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
     $scope.nextPlaylistFoldersPage = function() {
         if ($scope.playlistFolders[$scope.playlistFolders.length - 1].page_number == $scope.playlistFoldersPage) {
+            $scope.playlistFoldersPage = 1;
         } else {
             $scope.playlistFoldersPage++;
         }
     };
     $scope.prevPlaylistFoldersPage = function() {
         if ($scope.playlistFoldersPage == 1) {
+            $scope.playlistFoldersPage = $scope.playlistFolders[$scope.playlistFolders.length - 1].page_number;
         } else {
             $scope.playlistFoldersPage--;
         }

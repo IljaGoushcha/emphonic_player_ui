@@ -142,10 +142,16 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
     };
     $scope.nextPlaylistFoldersPage = function() {
-        $scope.playlistFoldersPage++;
+        if ($scope.playlistFolders[$scope.playlistFolders.length - 1].page_number == $scope.playlistFoldersPage) {
+        } else {
+            $scope.playlistFoldersPage++;
+        }
     };
     $scope.prevPlaylistFoldersPage = function() {
-        $scope.playlistFoldersPage--;
+        if ($scope.playlistFoldersPage == 1) {
+        } else {
+            $scope.playlistFoldersPage--;
+        }
     };
 
 });

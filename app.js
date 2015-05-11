@@ -1,24 +1,25 @@
 angular.module('EmphonicPlayer', ['mediaPlayer']);
 
 angular.module('EmphonicPlayer').run(function(SongsFactory, PlaylistFoldersFactory){
-    SongsFactory.fetch();
+    // SongsFactory.fetch();
     PlaylistFoldersFactory.fetch();
 });
 
-angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, PlaylistsFactory, AmazonService) {
+angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, PlaylistFoldersFactory, AmazonService) {
     'use strict';
 
     $scope.railsApiUrl = "https://emphonic-rails-api.herokuapp.com/";
     $scope.audioPlaylist = [];
     $scope.audioPlaylistDisplay = [];
     $scope.playlistIndex = 0;
-    $scope.playlistFolder = PlaylistFoldersFactory.playlistFolders;
+    $scope.playlistFolders = PlaylistFoldersFactory.playlistFolders;
     $scope.openedPlaylistSongs = [];
     $scope.openedPlaylist;
-    $scope.showPlaylistsPage = true;
+    $scope.showPlaylistFolders = true;
     $scope.showPlaylistPage = false;
     $scope.showPlayButton = true;
     $scope.showPauseButton = false;
+    $scope.playlistFoldersPage = 1;
             // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/64b4d8c2-574c-4284-9c6b-6fe2810ae3c6', type: 'audio/ogg' },
             // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/92f3eafe-afb4-4abb-a80a-bb33cd328c76', type: 'audio/ogg' }
 
@@ -139,8 +140,13 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
 
         $scope.audioPlaylistDisplay.push(songWithIndex);
         $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.url, type: 'audio/ogg'});
-    }
-
+    };
+    $scope.nextPlaylistFoldersPage = function() {
+        $scope.playlistFoldersPage++;
+    };
+    $scope.prevPlaylistFoldersPage = function() {
+        $scope.playlistFoldersPage--;
+    };
 
 });
 

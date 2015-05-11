@@ -16,7 +16,7 @@ angular.module('EmphonicPlayer').factory('PlaylistFoldersFactory', function($htt
 
   return {
     fetch:fetch,
-    playlists:playlistFolders,
+    playlistFolders:playlistFolders,
   };
 
 });

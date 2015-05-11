@@ -111,7 +111,7 @@
 .playlists-nav-button {
   display: block;
   height: 40px;
-  width: 120px;
+  width: 70px;
   margin-left: auto;
   margin-right: auto;
   background-image: url('images/song-button.jpg');
@@ -133,6 +133,11 @@
 }
 .playlists-nav-button:active, .playlists-nav-button.active {
   border: 4px outset grey;
+}
+.playlists-page-number p {
+  font-size: 2em;
+  text-align: center;
+  margin: 0px;
 }
 /* END playlists navigation buttons */
 

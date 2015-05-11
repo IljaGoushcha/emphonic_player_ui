@@ -1,11 +1,11 @@
 angular.module('EmphonicPlayer', ['mediaPlayer']);
 
-angular.module('EmphonicPlayer').run(function(SongsFactory, PlaylistFoldersFactory){
-    // SongsFactory.fetch();
+angular.module('EmphonicPlayer').run(function(PlaylistsFactory, PlaylistFoldersFactory){
+    // PlaylistsFactory.fetch();
     PlaylistFoldersFactory.fetch();
 });
 
-angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, PlaylistFoldersFactory, AmazonService) {
+angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, PlaylistsFactory, PlaylistFoldersFactory, AmazonService) {
     'use strict';
 
     $scope.railsApiUrl = "https://emphonic-rails-api.herokuapp.com/";
@@ -14,7 +14,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.playlistIndex = 0;
     $scope.playlistFolders = PlaylistFoldersFactory.playlistFolders;
     $scope.openedPlaylistSongs = [];
-    $scope.openedPlaylist = "hi";
+    $scope.openedPlaylist = "";
     $scope.showPlaylistFolders = true;
     $scope.showPlaylistPage = false;
     $scope.showPlayButton = true;
@@ -105,26 +105,23 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         makePromiseWithRailsAPI();
     };
 
-    $scope.openPlaylist = function(n, playlist) {
-        console.log("inside setOpenedPlaylist(), cell: " + n + ", playlist: " + playlist);
-        SongsFactory.fetchPlaylistSongs(playlist)
+    $scope.openPlaylistX = function(folderNumber) {
+        console.log("folder number is: " + folderNumber);
+        console.log("playlist name is: " + $scope.playlistFolders[folderNumber-1].playlist.name)
+        console.log("playlist id is: " + $scope.playlistFolders[folderNumber-1].playlist.id)
+
+        PlaylistsFactory.fetchPlaylistSongs($scope.playlistFolders[folderNumber-1].playlist.id)
             .then(function(data) {
-                $scope.openedPlaylistSongs = data;
-                $scope.showPlaylistsPage = false;
+                $scope.openedPlaylistSongs = data.songs;
+                $scope.openedPlaylist = data.name;
+                $scope.showPlaylistFolders = false;
                 $scope.showPlaylistPage = true;
             }, function(error) {
                 // promise rejected, could log the error with: console.log('error', error);
                 console.log(error);
             });
-        $scope.openedPlaylist = playlist;
-    };
 
-    $scope.openPlaylistX = function(folderNumber) {
-        console.log("folder number is: " + folderNumber);
-        $scope.openedPlaylistSongs = $scope.playlistFolders[folderNumber-1].playlist.songs;
-        $scope.openedPlaylist = $scope.playlistFolders[folderNumber-1].playlist.name;
-        $scope.showPlaylistFolders = false;
-        $scope.showPlaylistPage = true;
+        console.log("openedPlaylistSongs is:" + $scope.openedPlaylistSongs);
     };
 
     $scope.closePlaylist = function() {

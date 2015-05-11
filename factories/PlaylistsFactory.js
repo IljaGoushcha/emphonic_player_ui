@@ -1,18 +1,18 @@
-angular.module('EmphonicPlayer').factory('SongsFactory', function($http, $q) {
+angular.module('EmphonicPlayer').factory('PlaylistsFactory', function($http, $q) {
 
-  var songs = [];
+  var playlists = [];
   var playlistSongs = [];
 
   var fetch = function(){
-    $http.get('https://emphonic-rails-api.herokuapp.com/songs').success(function(response){
+    $http.get('http://localhost:3000/playlists').success(function(response){
       console.log(response);
-      angular.copy(response, songs);
+      angular.copy(response, playlists);
     });
   };
-  var fetchPlaylistSongs = function(playlist_name) {
+  var fetchPlaylistSongs = function(playlist_id) {
     // the $http API is based on the deferred/promise APIs exposed by the $q service
     // so it returns a promise for us by default
-    return $http.get('https://emphonic-rails-api.herokuapp.com/playlists/get_playlist_songs/' + playlist_name)
+    return $http.get('http://localhost:3000/playlists/' + playlist_id)
       .then(function(response) {
         if (typeof response.data === 'object') {
           return response.data;
@@ -37,7 +37,7 @@ angular.module('EmphonicPlayer').factory('SongsFactory', function($http, $q) {
   return {
     fetch: fetch,
     fetchPlaylistSongs: fetchPlaylistSongs,
-    songs: songs,
+    playlists: playlists,
     playlistSongs: playlistSongs
   };
 });

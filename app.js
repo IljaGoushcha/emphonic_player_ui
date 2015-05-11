@@ -106,11 +106,8 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
 
     $scope.openPlaylistX = function(folderNumber) {
-        console.log("folder number is: " + folderNumber);
-        console.log("playlist name is: " + $scope.playlistFolders[folderNumber-1].playlist.name)
-        console.log("playlist id is: " + $scope.playlistFolders[folderNumber-1].playlist.id)
-
-        PlaylistsFactory.fetchPlaylistSongs($scope.playlistFolders[folderNumber-1].playlist.id)
+        var playlist_id = $scope.playlistFolders[folderNumber-1].playlist.id
+        PlaylistsFactory.fetchPlaylistSongs(playlist_id)
             .then(function(data) {
                 $scope.openedPlaylistSongs = data.songs;
                 $scope.openedPlaylist = data.name;
@@ -120,8 +117,6 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
                 // promise rejected, could log the error with: console.log('error', error);
                 console.log(error);
             });
-
-        console.log("openedPlaylistSongs is:" + $scope.openedPlaylistSongs);
     };
 
     $scope.closePlaylist = function() {

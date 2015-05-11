@@ -107,6 +107,35 @@
 }
 /* END playlist navigation buttons */
 
+/* START playlists navigation buttons page */
+.playlists-nav-button {
+  display: block;
+  height: 40px;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('images/song-button.jpg');
+  border: 4px outset lightgrey;
+  border-radius: 0;
+  font-size: 1em;
+  color: #575358;
+  font-weight: bold;
+}
+.playlists-nav-button:hover, .playlists-nav-button:focus {
+  background-image: url('images/song-button.jpg');
+  border-color: lightgrey;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #969696;
+}
+.playlists-nav-button:focus {
+  color: #575358;
+}
+.playlists-nav-button:active, .playlists-nav-button.active {
+  border: 4px outset grey;
+}
+/* END playlists navigation buttons */
+
 /* START song number */
 .song-number-cell {
   padding: 10px 0px 10px 0px;

@@ -20,7 +20,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 logo-div"></div>
             </div>
             <div class="playlists-div">
-              <playlists-page ng-show="showPlaylistsPage"></playlists-page>
+              <playlist-folders ng-show="showPlaylistFolders"></playlist-folders>
               <playlist-page ng-show="showPlaylistPage"></playlist-page>
             </div>
         </div>
@@ -78,12 +78,12 @@
     <script src="bower_components/angular-media-player/dist/angular-media-player.js"></script>
     <script src="app.js"></script>
     <script src="factories/SongsFactory.js"></script>
-    <script src="factories/PlaylistsFactory.js"></script>
+    <script src="factories/PlaylistFoldersFactory.js"></script>
     <script src="factories/AmazonService.js"></script>
     <script src="directives/file-model.js"></script>
     <script src="directives/upload-song-modal.js"></script>
     <script src="directives/open-playlist-modal.js"></script>
-    <script src="directives/playlists-page.js"></script>
+    <script src="directives/playlist-folders.js"></script>
     <script src="directives/playlist-page.js"></script>
 
   </body>

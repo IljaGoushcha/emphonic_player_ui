@@ -1,8 +1,8 @@
 angular.module('EmphonicPlayer', ['mediaPlayer']);
 
-angular.module('EmphonicPlayer').run(function(SongsFactory, PlaylistsFactory){
+angular.module('EmphonicPlayer').run(function(SongsFactory, PlaylistFoldersFactory){
     SongsFactory.fetch();
-    PlaylistsFactory.fetch();
+    PlaylistFoldersFactory.fetch();
 });
 
 angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, SongsFactory, PlaylistsFactory, AmazonService) {
@@ -12,7 +12,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.audioPlaylist = [];
     $scope.audioPlaylistDisplay = [];
     $scope.playlistIndex = 0;
-    $scope.orderedPlaylists = PlaylistsFactory.orderedPlaylists;
+    $scope.playlistFolder = PlaylistFoldersFactory.playlistFolders;
     $scope.openedPlaylistSongs = [];
     $scope.openedPlaylist;
     $scope.showPlaylistsPage = true;

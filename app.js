@@ -102,17 +102,19 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
 
     $scope.openPlaylist = function(folderNumber) {
-        var playlist_id = $scope.playlistFolders[folderNumber-1].playlist.id
-        PlaylistsFactory.fetchPlaylistSongs(playlist_id)
-            .then(function(data) {
-                $scope.openedPlaylistSongs = data.songs;
-                $scope.openedPlaylist = data.name;
-            }, function(error) {
-                // promise rejected, could log the error with: console.log('error', error);
-                console.log(error);
-            });
-        $scope.showPlaylistFolders = false;
-        $scope.showPlaylistPage = true;
+        if ($scope.playlistFolders[folderNumber-1].playlist.id) {
+            var playlist_id = $scope.playlistFolders[folderNumber-1].playlist.id
+            PlaylistsFactory.fetchPlaylistSongs(playlist_id)
+                .then(function(data) {
+                    $scope.openedPlaylistSongs = data.songs;
+                    $scope.openedPlaylist = data.name;
+                }, function(error) {
+                    // promise rejected, could log the error with: console.log('error', error);
+                    console.log(error);
+                });
+            $scope.showPlaylistFolders = false;
+            $scope.showPlaylistPage = true;
+        }
     };
 
     $scope.closePlaylist = function() {

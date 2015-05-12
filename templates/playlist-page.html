@@ -1,102 +1,102 @@
 <h3>{{openedPlaylist}} tracks</h3>
 <div class="row">
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">1</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+1}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[0])">{{openedPlaylistSongs[0].artist}}<br>{{openedPlaylistSongs[0].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+0])">{{openedPlaylistSongs[15*(currentSongsPage-1)+0].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+0].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">6</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+6}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[5])">{{openedPlaylistSongs[5].artist}}<br>{{openedPlaylistSongs[5].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+5])">{{openedPlaylistSongs[15*(currentSongsPage-1)+5].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+5].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
-    <button type="button" class="song-number-button">11</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+11}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[10])">{{openedPlaylistSongs[10].artist}}<br>{{openedPlaylistSongs[10].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+10])">{{openedPlaylistSongs[15*(currentSongsPage-1)+10].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+10].name}}</button>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">2</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+2}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[1])">{{openedPlaylistSongs[1].artist}}<br>{{openedPlaylistSongs[1].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+1])">{{openedPlaylistSongs[15*(currentSongsPage-1)+1].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+1].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">7</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+7}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[6])">{{openedPlaylistSongs[6].artist}}<br>{{openedPlaylistSongs[6].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+6])">{{openedPlaylistSongs[15*(currentSongsPage-1)+6].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+6].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
-    <button type="button" class="song-number-button">12</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+12}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[11])">{{openedPlaylistSongs[11].artist}}<br>{{openedPlaylistSongs[11].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+11])">{{openedPlaylistSongs[15*(currentSongsPage-1)+11].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+11].name}}</button>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">3</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+3}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[2])">{{openedPlaylistSongs[2].artist}}<br>{{openedPlaylistSongs[2].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+2])">{{openedPlaylistSongs[15*(currentSongsPage-1)+2].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+2].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">8</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+8}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[7])">{{openedPlaylistSongs[7].artist}}<br>{{openedPlaylistSongs[7].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+7])">{{openedPlaylistSongs[15*(currentSongsPage-1)+7].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+7].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
-    <button type="button" class="song-number-button">13</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+13}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[12])">{{openedPlaylistSongs[12].artist}}<br>{{openedPlaylistSongs[12].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+12])">{{openedPlaylistSongs[15*(currentSongsPage-1)+12].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+12].name}}</button>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">4</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+4}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[3])">{{openedPlaylistSongs[3].artist}}<br>{{openedPlaylistSongs[3].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+3])">{{openedPlaylistSongs[15*(currentSongsPage-1)+3].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+3].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">9</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+9}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[8])">{{openedPlaylistSongs[8].artist}}<br>{{openedPlaylistSongs[8].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+8])">{{openedPlaylistSongs[15*(currentSongsPage-1)+8].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+8].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
-    <button type="button" class="song-number-button">14</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+14}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[13])">{{openedPlaylistSongs[13].artist}}<br>{{openedPlaylistSongs[13].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+13])">{{openedPlaylistSongs[15*(currentSongsPage-1)+13].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+13].name}}</button>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">5</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+5}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[4])">{{openedPlaylistSongs[4].artist}}<br>{{openedPlaylistSongs[4].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+4])">{{openedPlaylistSongs[15*(currentSongsPage-1)+4].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+4].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-number-cell">
-    <button type="button" class="song-number-button">10</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+10}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[9])">{{openedPlaylistSongs[9].artist}}<br>{{openedPlaylistSongs[9].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+9])">{{openedPlaylistSongs[15*(currentSongsPage-1)+9].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+9].name}}</button>
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-cell">
-    <button type="button" class="song-number-button">15</button>
+    <button type="button" class="song-number-button">{{15*(currentSongsPage-1)+15}}</button>
   </div>
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 song-cell">
-    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[14])">{{openedPlaylistSongs[14].artist}}<br>{{openedPlaylistSongs[14].name}}</button>
+    <button type="button" class="song-button" ng-click="addSongToPlaylist(openedPlaylistSongs[15*(currentSongsPage-1)+14])">{{openedPlaylistSongs[15*(currentSongsPage-1)+14].artist}}<br>{{openedPlaylistSongs[15*(currentSongsPage-1)+14].name}}</button>
   </div>
 </div>
 <div class="row">

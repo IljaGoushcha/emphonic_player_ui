@@ -13,20 +13,21 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.audioPlaylistDisplay = [];
     $scope.playlistIndex = 0;
     $scope.playlistFolders = PlaylistFoldersFactory.playlistFolders;
+
     $scope.openedPlaylistSongs = [];
     $scope.openedPlaylist = "";
+    $scope.currentSongsPage = 1;
+
     $scope.showPlaylistFolders = true;
     $scope.showPlaylistPage = false;
     $scope.showPlayButton = true;
     $scope.showPauseButton = false;
     $scope.playlistFoldersPage = 1;
-    $scope.currentSongsPage = 1;
 
     var x = 1.0;
 
     var audioElm = document.getElementById("audio1"); // Audio element
     var ratedisplay = document.getElementById("rate"); // Rate display area
-
 
     $scope.setCurrentSong = function(song) {
         $scope.current_song = song;
@@ -117,7 +118,11 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.closePlaylist = function() {
         $scope.showPlaylistFolders = true;
         $scope.showPlaylistPage = false;
+        $scope.openedPlaylistSongs = [];
+        $scope.openedPlaylist = "";
+        $scope.currentSongsPage = 1;
     };
+
     $scope.addSongToPlaylist = function(song) {
         var songWithIndex = {
             id: song.id,
@@ -136,6 +141,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         $scope.audioPlaylistDisplay.push(songWithIndex);
         $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.amazon_uid, type: 'audio/ogg'});
     };
+
     $scope.nextPlaylistFoldersPage = function() {
         if ($scope.playlistFolders[$scope.playlistFolders.length - 1].page_number == $scope.playlistFoldersPage) {
             $scope.playlistFoldersPage = 1;
@@ -143,6 +149,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             $scope.playlistFoldersPage++;
         }
     };
+
     $scope.prevPlaylistFoldersPage = function() {
         if ($scope.playlistFoldersPage == 1) {
             $scope.playlistFoldersPage = $scope.playlistFolders[$scope.playlistFolders.length - 1].page_number;
@@ -150,6 +157,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             $scope.playlistFoldersPage--;
         }
     };
+
     $scope.nextSongsPage = function() {
         if (($scope.openedPlaylistSongs.length/15) == $scope.currentSongsPage) {
             $scope.currentSongsPage = 1;
@@ -157,6 +165,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             $scope.currentSongsPage++;
         }
     };
+
     $scope.prevSongsPage = function() {
         if ($scope.currentSongsPage == 1) {
             $scope.currentSongsPage = $scope.openedPlaylistSongs.length/15;

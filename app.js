@@ -20,12 +20,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.showPlayButton = true;
     $scope.showPauseButton = false;
     $scope.playlistFoldersPage = 1;
-            // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/64b4d8c2-574c-4284-9c6b-6fe2810ae3c6', type: 'audio/ogg' },
-            // { src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/92f3eafe-afb4-4abb-a80a-bb33cd328c76', type: 'audio/ogg' }
-
-
-
-
+    $scope.currentSongsPage = 1;
 
     var x = 1.0;
 
@@ -153,6 +148,20 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             $scope.playlistFoldersPage = $scope.playlistFolders[$scope.playlistFolders.length - 1].page_number;
         } else {
             $scope.playlistFoldersPage--;
+        }
+    };
+    $scope.nextSongsPage = function() {
+        if (($scope.openedPlaylistSongs.length/15) == $scope.currentSongsPage) {
+            $scope.currentSongsPage = 1;
+        } else {
+            $scope.currentSongsPage++;
+        }
+    };
+    $scope.prevSongsPage = function() {
+        if ($scope.currentSongsPage == 1) {
+            $scope.currentSongsPage = $scope.openedPlaylistSongs.length/15;
+        } else {
+            $scope.currentSongsPage--;
         }
     };
 

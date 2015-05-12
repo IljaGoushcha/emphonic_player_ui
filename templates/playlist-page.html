@@ -105,17 +105,16 @@
   </div>
   <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-button-cell"></div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 song-button-cell">
-    <button class="playlist-nav-button" ng-click="">PICK 5</button>
-  </div>
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 song-button-cell">
     <button class="playlist-nav-button" ng-click="">CLEAR</button>
   </div>
-  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-button-cell"></div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 song-button-cell">
-    <button class="playlist-nav-button" ng-click="">PREV</button>
+    <button class="playlist-nav-button" ng-click="">PICK 5</button>
   </div>
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 song-button-cell">
-    <button class="playlist-nav-button" ng-click="">NEXT</button>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 song-button-cell"></div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    <button class="playlists-nav-button playlists-nav-button-prev" ng-click="prevSongsPage()">PREV</button>
+    <p class="playlists-page-number">{{currentSongsPage}}</p>
+    <button class="playlists-nav-button playlists-nav-button-next" ng-click="nextSongsPage()">NEXT</button>
   </div>
 </div>
 

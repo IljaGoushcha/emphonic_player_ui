@@ -126,22 +126,25 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     };
 
     $scope.addSongToPlaylist = function(song) {
-        var songWithIndex = {
-            id: song.id,
-            amazon_uid: song.amazon_uid,
-            album: song.album,
-            artist: song.artist,
-            name: song.name,
-            pitch: song.pitch,
-            fade_in_time: song.fade_in_time,
-            fade_out_time: song.fade_out_time,
-            volume: song.volume,
-            playlistIndex: $scope.playlistIndex
-        };
-        $scope.playlistIndex++;
+        console.log("song object is: " + song.amazon_uid);
+        if (song.amazon_uid) {
+            var songWithIndex = {
+                id: song.id,
+                amazon_uid: song.amazon_uid,
+                album: song.album,
+                artist: song.artist,
+                name: song.name,
+                pitch: song.pitch,
+                fade_in_time: song.fade_in_time,
+                fade_out_time: song.fade_out_time,
+                volume: song.volume,
+                playlistIndex: $scope.playlistIndex
+            };
+            $scope.playlistIndex++;
 
-        $scope.audioPlaylistDisplay.push(songWithIndex);
-        $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.amazon_uid, type: 'audio/ogg'});
+            $scope.audioPlaylistDisplay.push(songWithIndex);
+            $scope.audioPlaylist.push({src: 'https://s3.amazonaws.com/emphonic-player-demo/uploads/' + song.amazon_uid, type: 'audio/ogg'});
+        }
     };
 
     $scope.nextPlaylistFoldersPage = function() {

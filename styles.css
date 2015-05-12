@@ -16,13 +16,15 @@
 .playlist-button {
   display: block;
   height: 80px;
-  width: 80px;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0;
   background-image: url('images/playlist-button.jpg');
-  color: #5C5C5C;
+  color: #575358;
   border: 4px outset lightgrey;
   border-radius: 0;
+  font-weight: bold;
 }
 .playlist-button:hover, .playlist-button:focus, .playlist-button:active, .playlist-button.active {
   background-image: url('images/playlist-button.jpg');
@@ -32,6 +34,9 @@
 }
 .playlist-button:active, .playlist-button.active {
   border: 4px outset grey;
+}
+.playlist-button:hover {
+  color: #969696;
 }
 .playlist-cell {
   padding: 10px 0px 10px 0px;

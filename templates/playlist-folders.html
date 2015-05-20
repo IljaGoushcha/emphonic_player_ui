@@ -1,7 +1,7 @@
 <h3>ALL PLAYLISTS</h3>
 <div class="row">
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 playlist-cell">
-    <button type="button" class="playlist-button" ng-click="openPlaylist(30*(playlistFoldersPage-1)+1)">{{playlistFolders[30*(playlistFoldersPage-1)+0].playlist.name | uppercase}}</button>
+    <button type="button" id="my-btn" class="playlist-button" ng-click="openPlaylist(30*(playlistFoldersPage-1)+1)">{{playlistFolders[30*(playlistFoldersPage-1)+0].playlist.name | uppercase}}</button>
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 playlist-cell">
     <button type="button" class="playlist-button" ng-click="openPlaylist(30*(playlistFoldersPage-1)+6)">{{playlistFolders[30*(playlistFoldersPage-1)+5].playlist.name | uppercase}}</button>
@@ -101,11 +101,14 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <button class="playlist-nav-button playlist-folders-editor-closed" ng-show="openPlaylistFoldersEditor" ng-click="openPlaylistFoldersEditor()">EDIT</button>
+    <button class="playlist-nav-button playlist-folders-editor-opened" ng-show="!openPlaylistFoldersEditor" ng-click="closePlaylistFoldersEditor()">EDIT</button>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
     <button class="playlist-nav-button" ng-click="">DELAY</button>
   </div>
-  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
 
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
     <button class="playlists-nav-button playlists-nav-button-prev" ng-click="prevPlaylistFoldersPage()">PREV</button>
@@ -114,4 +117,5 @@
   </div>
 </div>
 
+<div id="testdiv" tabindex="0"><h1>{{shift}}</h1></div>
 

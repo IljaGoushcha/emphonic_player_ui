@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
 
-  <body ng-app="EmphonicPlayer" ng-controller="MainCtrl">
+  <body ng-app="EmphonicPlayer" ng-controller="MainCtrl" ng-keydown="editPlaylistFolder($event)">
 
     <audio media-player="audio1" data-playlist="audioPlaylist"></audio>
 
@@ -85,6 +85,7 @@
     <script src="directives/open-playlist-modal.js"></script>
     <script src="directives/playlist-folders.js"></script>
     <script src="directives/playlist-page.js"></script>
+    <script src="directives/custom-directive.js"></script>
 
   </body>
 </html>

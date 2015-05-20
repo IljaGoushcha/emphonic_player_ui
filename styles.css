@@ -187,6 +187,13 @@
 }
 /* END song number */
 
+/* START playlist folders edit button */
+.playlist-folders-editor-closed {
+  background-image: url('images/brushed-aluminum.jpg');
+}
+
+/* END playlist folders edit button */
+
 .general-background {
   background-image: url('images/brushed-aluminum.jpg');
   background-size: cover;

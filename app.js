@@ -24,6 +24,9 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.showPauseButton = false;
     $scope.playlistFoldersPage = 1;
 
+    $scope.openPlaylistFoldersEditor = true;
+    $scope.shift = false;
+
     var x = 1.0;
 
     var audioElm = document.getElementById("audio1"); // Audio element
@@ -178,6 +181,14 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
             $scope.currentSongsPage--;
         }
     };
+
+    $scope.editPlaylistFolder = function(e) {
+        console.log("inside editPlaylistFolder");
+        if(e.which === 16){//shift
+           //$rootScope.$broadcast('doShift');
+           $scope.shift = !$scope.shift;
+       }
+    }
 
 });
 

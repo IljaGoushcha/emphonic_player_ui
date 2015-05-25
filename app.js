@@ -185,6 +185,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         if (e.shiftKey) {
             console.log("SHIFT detected");
             // shift key pressed
+            $('#RenameFolderModal').modal('show');
         } else {
             $scope.openPlaylist(folderNumber);
             console.log("2");

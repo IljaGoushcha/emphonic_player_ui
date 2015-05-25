@@ -24,8 +24,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.showPauseButton = false;
     $scope.playlistFoldersPage = 1;
 
-    $scope.openPlaylistFoldersEditor = true;
-    $scope.shift = false;
+    $scope.openPlaylistFoldersEditor = true;    //check if this is used
 
     var x = 1.0;
 
@@ -182,13 +181,15 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
         }
     };
 
-    $scope.editPlaylistFolder = function(e) {
-        console.log("inside editPlaylistFolder");
-        if(e.which === 16){//shift
-           //$rootScope.$broadcast('doShift');
-           $scope.shift = !$scope.shift;
-       }
-    }
+    $scope.myClickHandler = function(e, folderNumber) {
+        if (e.shiftKey) {
+            console.log("SHIFT detected");
+            // shift key pressed
+        } else {
+            $scope.openPlaylist(folderNumber);
+            console.log("2");
+        }
+    };
 
 });
 

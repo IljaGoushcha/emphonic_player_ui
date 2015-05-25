@@ -1,43 +1,42 @@
-angular.module('EmphonicPlayer').factory('PlaylistsFactory', function($http, $q) {
+angular.module('EmphonicPlayer').factory('PlaylistsFactory', function($http) {
 
-  var playlists = [];
+  var allPlaylists = [];
   var playlistSongs = [];
 
-  var fetch = function(){
-    $http.get('http://localhost:3000/playlists').success(function(response){
-      console.log(response);
-      angular.copy(response, playlists);
-    });
+  var fetchAll = function(){
+    $http.get('http://localhost:3000/playlists').
+      success(function(response) {
+        console.log("successfully received all playlists");
+        console.log(response);
+        angular.copy(response, allPlaylists);
+      }).
+      error(function(data, status, headers, config) {
+        console.log("something went wrong when getting playlists");
+      });
   };
+
   var fetchPlaylistSongs = function(playlist_id) {
-    // the $http API is based on the deferred/promise APIs exposed by the $q service
-    // so it returns a promise for us by default
-    return $http.get('http://localhost:3000/playlists/' + playlist_id)
-      .then(function(response) {
-        if (typeof response.data === 'object') {
-          return response.data;
-        } else {
-          // invalid response
-          return $q.reject(response.data);
-        }
-    }, function(response) {
-      // something went wrong
-      return $q.reject(response.data);
-    });
+      // the $http API is based on the deferred/promise APIs exposed by the $q service
+      // so it returns a promise for us by default
+      return $http.get('http://localhost:3000/playlists/' + playlist_id)
+        .then(function(response) {
+          if (typeof response.data === 'object') {
+            return response.data;
+          } else {
+            // invalid response
+            return $q.reject(response.data);
+          }
+      }, function(response) {
+        // something went wrong
+        return $q.reject(response.data);
+      });
   };
-  // fetchPlaylistSongs: function(playlist_name){
-  //   var playlisSongsPromise = $http.get('http://localhost:3000/playlists/get_playlist_songs/' + playlist_name)
-  //   .success(function(response){
-  //     console.log(response);
-  //     angular.copy(response, playlistSongs);
-  //   });
-  //   return playlisSongsPromise;
-  // };
 
   return {
-    fetch: fetch,
+    fetchAll: fetchAll,
     fetchPlaylistSongs: fetchPlaylistSongs,
-    playlists: playlists,
+    allPlaylists: allPlaylists,
     playlistSongs: playlistSongs
   };
+
 });

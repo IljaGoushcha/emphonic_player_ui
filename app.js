@@ -1,7 +1,7 @@
 angular.module('EmphonicPlayer', ['mediaPlayer']);
 
 angular.module('EmphonicPlayer').run(function(PlaylistsFactory, PlaylistFoldersFactory){
-    // PlaylistsFactory.fetch();
+    PlaylistsFactory.fetchAll();
     PlaylistFoldersFactory.fetch();
 });
 
@@ -13,6 +13,7 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.audioPlaylistDisplay = [];
     $scope.playlistIndex = 0;
     $scope.playlistFolders = PlaylistFoldersFactory.playlistFolders;
+    $scope.allPlaylists = PlaylistsFactory.allPlaylists;
 
     $scope.openedPlaylistSongs = [];
     $scope.openedPlaylist = "";
@@ -184,11 +185,9 @@ angular.module('EmphonicPlayer').controller('MainCtrl', function($scope, $http, 
     $scope.myClickHandler = function(e, folderNumber) {
         if (e.shiftKey) {
             console.log("SHIFT detected");
-            // shift key pressed
             $('#RenameFolderModal').modal('show');
         } else {
             $scope.openPlaylist(folderNumber);
-            console.log("2");
         }
     };
 

@@ -7,36 +7,21 @@
       </div>
       <div class="modal-body" ng-controller="MainCtrl">
 
-        <div id="form-for-s3">
+        <div id="form-for-folder">
           <div class="form-group">
-            <label for="title">Playlist:</label>
-            <input type="text" class="form-control" ng-model="song.title">
-          </div>
-          <div class="form-group">
-            <label for="author">Author:</label>
-            <input type="text" class="form-control" ng-model="song.author">
-          </div>
-          <div class="form-group">
-            <label for="album">Album:</label>
-            <input type="text" class="form-control" ng-model="song.album">
-          </div>
-          <div class="form-group">
-            <label for="sel1">Select playlist:</label>
-            <select class="form-control" id="sel1" ng-model="song.playlist">
-              <option>Bachata</option>
-              <option>Cha Cha</option>
-              <option>Foxtrot</option>
-              <option>Pasodoble</option>
-              <option>Rumba</option>
-              <option>Salsa</option>
-              <option>Samba</option>
-              <option>Tango</option>
-              <option>Waltz</option>
+            <label for="sel2">Select playlist:</label>
+            <select class="form-control" id="sel2" ng-model="song.playlist">
+              <option ng-repeat="playlist in allPlaylists" ng-click="">{{playlist.name}}</option>
             </select>
+          </div>
+          <h1>OR</h1>
+          <div class="form-group">
+            <label for="title">New playlist:</label>
+            <input type="text" class="form-control" ng-model="song.title">
           </div>
         </div>
 
-        <button id="upload-button" ng-click="uploadToS3()">Upload to S3</button>
+        <button class="btn btn-primary" id="upload-button" ng-click="uploadToS3()">Save</button>
 
       </div>
     </div><!-- /.modal-content -->
